@@ -1,0 +1,83 @@
+ai-learning:
+  lsp:
+    # LSP Server Configuration
+    server:
+      name: "AI Learning Companion Language Server"
+      version: "1.0.0"
+      
+    # Communication settings
+    communication:
+      protocol: "stdio"  # stdio, socket, or pipe
+      port: 8080
+      timeout-ms: 5000
+      
+    # Feature capabilities
+    capabilities:
+      text-document-sync: "incremental"  # none, full, incremental
+      hover: true
+      completion: true
+      code-action: true
+      diagnostics: true
+      workspace-folders: true
+      configuration-change: true
+      
+    # Completion settings
+    completion:
+      trigger-characters: [".", "@", "(", "<"]
+      resolve-provider: true
+      
+    # Code action settings
+    code-action:
+      kinds:
+        - "quickfix"
+        - "refactor"
+        - "source"
+        - "source.organizeImports"
+        
+    # Diagnostic settings
+    diagnostics:
+      publish-on-open: true
+      publish-on-change: true
+      publish-on-save: true
+      debounce-ms: 500
+      
+    # Workspace settings
+    workspace:
+      file-watchers:
+        - "**/*.java"
+        - "**/*.py"
+        - "**/*.js"
+        - "**/*.ts"
+        - "**/*.cs"
+        - "**/*.go"
+        - "**/*.rs"
+      exclude-patterns:
+        - "**/node_modules/**"
+        - "**/target/**"
+        - "**/build/**"
+        - "**/.git/**"
+        
+    # Analysis settings
+    analysis:
+      enabled: true
+      real-time: true
+      on-save-only: false
+      max-file-size-kb: 1024
+      
+    # Learning features
+    learning:
+      hover-explanations: true
+      completion-suggestions: true
+      code-action-recommendations: true
+      proactive-hints: true
+
+# Logging configuration for LSP
+logging:
+  level:
+    com.ailearning.lsp: DEBUG
+    org.eclipse.lsp4j: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [LSP] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [LSP] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/ai-learning-lsp.log

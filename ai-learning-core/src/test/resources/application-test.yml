@@ -1,0 +1,18 @@
+ai-learning:
+  app:
+    name: "AI Learning Companion Test"
+    
+  performance:
+    context-update-timeout-ms: 100
+    analysis-timeout-ms: 50
+    
+spring:
+  profiles:
+    active: test
+    
+logging:
+  level:
+    com.ailearning: DEBUG
+    org.springframework: WARN
+  pattern:
+    console: "%d{HH:mm:ss} %-5level %logger{36} - %msg%n"

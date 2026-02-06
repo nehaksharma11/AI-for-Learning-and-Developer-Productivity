@@ -1,0 +1,117 @@
+# AI Learning Companion Configuration
+ailearning:
+  performance:
+    context-update-threshold-ms: 500
+    typical-operation-threshold-ms: 100
+    memory-threshold-mb: 500.0
+    cpu-threshold-percent: 80.0
+    background-thread-pool-size: 4
+  
+  security:
+    encryption-enabled: true
+    encryption-algorithm: AES-256-GCM
+    tls-enabled: true
+    tls-version: TLSv1.3
+    key-rotation-days: 90
+  
+  ai:
+    openai-enabled: false
+    openai-api-key: ${OPENAI_API_KEY:}
+    openai-model: gpt-4
+    huggingface-enabled: false
+    huggingface-api-key: ${HUGGINGFACE_API_KEY:}
+    huggingface-model: codellama/CodeLlama-7b-hf
+    fallback-enabled: true
+    timeout-seconds: 30
+  
+  cache:
+    max-size-mb: 100
+    default-ttl-minutes: 60
+    eviction-policy: LRU
+  
+  learning:
+    adaptive-difficulty-enabled: true
+    min-session-duration-minutes: 5
+    max-session-duration-minutes: 60
+    retention-check-days: 7
+    skill-confidence-threshold: 0.7
+
+# Legacy configuration (for backward compatibility)
+ai-learning:
+  # Core application settings
+  app:
+    name: "AI Learning Companion"
+    version: "1.0.0-SNAPSHOT"
+    
+  # Performance settings
+  performance:
+    context-update-timeout-ms: 500
+    analysis-timeout-ms: 100
+    max-memory-mb: 500
+    large-codebase-threshold: 1000000
+    
+  # LSP settings
+  lsp:
+    port: 8080
+    host: "localhost"
+    enable-custom-extensions: true
+    
+  # Learning settings
+  learning:
+    default-session-length-minutes: 30
+    max-session-length-minutes: 120
+    min-session-length-minutes: 5
+    
+  # Security settings
+  security:
+    enable-local-processing: true
+    enable-data-encryption: true
+    require-explicit-consent: true
+    
+  # Supported languages
+  languages:
+    supported:
+      - java
+      - python
+      - javascript
+      - typescript
+      - csharp
+      - go
+      - cpp
+      - rust
+
+# Spring Boot configuration
+spring:
+  application:
+    name: ai-learning-companion
+    
+  profiles:
+    active: development
+    
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+
+# Logging configuration
+logging:
+  level:
+    com.ailearning: DEBUG
+    org.springframework: INFO
+    org.eclipse.lsp4j: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/ai-learning-companion.log
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
