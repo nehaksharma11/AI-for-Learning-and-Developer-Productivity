@@ -2,6 +2,8 @@
 
 An intelligent system that integrates with IDEs to provide context-aware learning assistance and productivity enhancement.
 
+**GitHub Repository**: [https://github.com/nehaksharma11/AI-for-Learning-and-Developer-Productivity](https://github.com/nehaksharma11/AI-for-Learning-and-Developer-Productivity)
+
 ## Project Structure
 
 This is a multi-module Maven project with the following structure:
