@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ai-learning-companion
+    runtime: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar ai-learning-core/target/ai-learning-core-1.0.0-SNAPSHOT.jar --server.port=$PORT
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+    healthCheckPath: /actuator/health
