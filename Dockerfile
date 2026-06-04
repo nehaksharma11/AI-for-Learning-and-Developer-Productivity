@@ -1,9 +1,5 @@
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY pom.xml .
-COPY ai-learning-core/pom.xml ai-learning-core/
-COPY ai-learning-lsp/pom.xml ai-learning-lsp/
-RUN mvn dependency:go-offline -B
 COPY . .
 RUN mvn clean package -DskipTests -B
 
