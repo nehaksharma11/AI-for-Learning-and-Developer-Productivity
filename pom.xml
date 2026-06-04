@@ -32,11 +32,6 @@
     <modules>
         <module>ai-learning-core</module>
         <module>ai-learning-lsp</module>
-        <module>ai-learning-analyzer</module>
-        <module>ai-learning-learning</module>
-        <module>ai-learning-docs</module>
-        <module>ai-learning-ai</module>
-        <module>ai-learning-app</module>
     </modules>
 
     <dependencyManagement>
